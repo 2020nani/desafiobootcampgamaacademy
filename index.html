@@ -2,32 +2,42 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-1">
-          <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+      <div id="rowone" class="row">
+        <div id="logo" class="col-md-1">
+         <a href="index.html"> <img width="100%" alt="Bootstrap Image Preview" src="imagens/logo.jpg" /></a>
         </div>
         <div class="col-md-11">
           <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Messages</a>
-            </li>
             <li class="nav-item dropdown ml-md-auto">
-               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                 <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider">
-                </div> <a class="dropdown-item" href="#">Separated link</a>
-              </div>
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                 <a class="dropdown-item" href="#">Portugues BR</a> <a class="dropdown-item" href="#">R$ BRL</a>
+               
+             </div>
+           </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Hospede em sua acomodação</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Hospede uma experiencia</a>
+            </li>
+            <button>
+            <li class="nav-item dropdown ml-md-auto">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Hernani</a>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Mensagens</a> <a class="dropdown-item" href="#">Notificações</a> <a class="dropdown-item" href="#">Viagens</a>
+                <a class="dropdown-item" href="#">Salvos</a>
+               <div class="dropdown-divider">
+               </div> <a class="dropdown-item" href="#">Conta</a>
+               <a class="dropdown-item" href="#">Ajuda</a>
+               <a class="dropdown-item" href="#">Sair da Conta</a>
+             </div>
+           </li>
+          </button>
           </ul>
         </div>
       </div>
@@ -35,101 +45,84 @@
         <div class="col-md-12">
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link active" href="#">Lugares para ficar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <a class="nav-link" href="#">Estadias Longas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Messages</a>
+              <a class="nav-link disabled" href="#">Experiencias</a>
             </li>
-            <li class="nav-item dropdown ml-md-auto">
-               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                 <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider">
-                </div> <a class="dropdown-item" href="#">Separated link</a>
-              </div>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Experiencias Onlines<button>Novo</button></a>
             </li>
+            
           </ul>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="btn-group btn-group-lg" role="group">
-             
-            <button class="btn btn-secondary" type="button">
-              Left
-            </button> 
-            <button class="btn btn-secondary" type="button">
-              Center
-            </button> 
-            <button class="btn btn-secondary" type="button">
-              Right
-            </button> 
-            <button class="btn btn-secondary" type="button">
-              Justify
-            </button>
+            
+            <button>Localização <br/><input type="text" id="fname" name="fname" placeholder="Insira a cidade,poto referencia ou endereço" ></button>        
+            <button>Check-in/Check-out <br/><input type="text" id="fname" name="fname" placeholder="Entre com as datas" ></button>
+            <button>Hospedes <br/><input type="text" id="fname" name="fname" placeholder="Insira o numero de hospedes" ></button>        
+            <button>Buscar <br/></button>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <h2>
-            Heading
+            Podemos estar afastados,<br/> mas vamos superar isso juntos.
           </h2>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-          <p>
-            <a class="btn" href="#">View details »</a>
-          </p>
+         
         </div>
       </div>
       <div class="row">
         <div class="col-md-4">
           <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
+            <a href="index.html">
             <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
+              <img width="100%" src="imagens/img1.webp">
             </div>
             <div class="card-footer">
-              Card footer
+              <h3>Experiencias Onlines</h3><br/>
+               <p>Atividades unicas que podemos fazer juntos, oferecidas por anfitriões de todo mundo</p>
+             
             </div>
+          </div>
+        </a>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <a href="index.html">
+              <div class="card-body">
+                <img width="100%" src="imagens/img2.webp">
+              </div>
+              <div class="card-footer">
+                <h3>Estadias Longas</h3><br/>
+             <p>Sinta-se em casa no Airbnb com estadias de um mes ou mais</p>
+               
+              </div>
+            </div>
+          </a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
-            <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
+            <a href="index.html">
+              <div class="card-body">
+                <img width="100%" src="imagens/img3.webp">
+              </div>
+              <div class="card-footer">
+                <h3>Informações atualizadas</h3><br/>
+               <p>Saiba mais sobre as ações que estamos tomando em relação á <br/>
+               COVID-19.</p>
+               
+              </div>
             </div>
-            <div class="card-footer">
-              Card footer
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
-            <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
-            </div>
-            <div class="card-footer">
-              Card footer
-            </div>
+          </a>
           </div>
         </div>
       </div>
@@ -137,11 +130,15 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-11">
+              <h2>Apresentamos as experiências online</h2>
+Agora você pode conhecer pessoas do mundo inteiro enquanto experimenta algo novo. Participe de <br/>sessões de vídeo interativas ao vivo oferecidas por anfitriões especialistas — tudo isso sem sair de casa.
+
+
             </div>
             <div class="col-md-1">
                
               <button type="button" class="btn btn-success">
-                Button
+                Explorar tudo
               </button>
             </div>
           </div>
@@ -150,69 +147,73 @@
       <div class="row">
         <div class="col-md-6">
           <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
-            <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
-            </div>
+            
+            
+              <img width="100%" src="imagens/img4.webp">
+            
             <div class="card-footer">
-              Card footer
+              Prepare uma receita de sangria completa com<br/>
+              Pedro,de Lisboa
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
-            <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
-            </div>
+            <img src="imagens/img6.webp" alt="">
+            
             <div class="card-footer">
-              Card footer
+              Alongue-se. Respire. Relaxe. Aula de ioga<br/>
+              com amigos.
             </div>
           </div>
           <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
-            <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
-            </div>
+            <img src="imagens/img7.webp" alt="">
             <div class="card-footer">
-              Card footer
+              Medite ao som da musica com Janice,<br/>
+              de Amsterda
             </div>
           </div>
           <div class="card">
-            <h5 class="card-header">
-              Card title
-            </h5>
-            <div class="card-body">
-              <p class="card-text">
-                Card content
-              </p>
-            </div>
+            <img src="imagens/img8.webp" alt="">
             <div class="card-footer">
-              Card footer
+              Desenhe com Jon e ajude os <br/>
+              pinguins africanos
             </div>
           </div>
         </div>
       </div>
+      <div>
+      <h4>Fique por dentro</h4>
       <div class="row">
         <div class="col-md-4">
+          Para hospedes</br><hr>
+          <a href="index.html">
+            <p>Atualizações sobre viagens</p>
+            O que voce deve saber<br/><hr>
+          </a> 
+          <a href="index.html">
+            <p>Opções de cancelamento</p>
+            Saiba o que esta coberto<br/><hr>
+          </a>
+          <a href="index.html">
+            <p>Central de Ajuda</p>
+            Ajuda<br/><hr>
+          </a>
         </div>
         <div class="col-md-4">
+          <a href="index.html">
+            <p>Atualizações sobre viagens</p>
+            O que voce deve saber<br/><hr>
+          </a>
         </div>
         <div class="col-md-4">
+          <a href="index.html">
+            <p>Opções de cancelamento</p>
+            Saiba o que esta coberto<br/><hr>
+          </a>
         </div>
       </div>
+    </div>
       <div class="row">
         <div class="col-md-4">
         </div>
