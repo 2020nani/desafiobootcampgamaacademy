@@ -52,32 +52,13 @@
       <div class="row">
         <div  class="col-md-6">
           <div id="cards">
+          
           </div>
-          <nav>
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#">Previous</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">4</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">5</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
+          <div class="pagination">
+            <input type="button" id="previous" value="previous" />
+            <input type="button" id="next" value="next" />
+          </div>
+          
         </div>
         <div class="col-md-6">
         </div>
@@ -159,22 +140,59 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script>
+ //getData
 const apiUrl = "https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
 const cardsContainer=document.querySelector("#cards");
 let data = [];
+let currentPage = 1;
+let numberOfPages = 4
+let numberObjPerPage = 5;
 
+function paginateEvent() {
+	document.getElementById('next').disabled = currentPage === numberOfPages ? true : false;
+	document.getElementById('previous').disabled = currentPage === 1 ? true : false;
+}
+
+function getNumberOfPages(data) {
+	numberOfPages = Math.ceil(data.length / numberObjPerPage);
+}
+
+function loadObjs(data) {
+	let ini = ((currentPage - 1) * numberObjPerPage);
+	let end = ini + numberObjPerPage;
+	let datas = Object.keys(data)
+		.slice(ini, end)
+		.reduce((result, key) => {
+			result.push(data[key]);
+			return result;
+		}, []);
+
+	paginateEvent();
+	return datas;
+};
+
+function next(data) {
+	currentPage += 1;
+	// buildCardsEl(data);
+	getNumberOfPages(data);
+};
+
+function prev(data) {
+	currentPage -= 1;
+	// buildCardsEl(data);
+	getNumberOfPages(data);
+};
 async function fetchCards(){
   return await fetch(apiUrl)
-  .then(async (response) => await response.json())
-  
+  .then(async (response) => await response.json()
+  )  
 } 
-
-function renderCards(cards) {
+function renderCards(data) {
+  let cards = loadObjs(data);
   cardsContainer.innerHTML = "";
   cards.map(renderCard);
   
 }
-
 function renderCard(card){
   const div = document.createElement("div");
   div.style.width = "20rem";
@@ -193,15 +211,47 @@ function renderCard(card){
   </div>
   `;
   cardsContainer.appendChild(div);
+  console.log(cardsContainer)
 }
 
+//buscando dados e puxando p array data
 async function main() {
   data = await fetchCards();
-  if(data[0]){
-    renderCards(data);
+ let previousPage = document.getElementById('previous');
+	let nextPage = document.getElementById('next');
+
+//	let sheety = await data.get(data.sheetyUrl);
+	//let cities = await data.get(data.citiesUrl);
+//	let response = data.rebaseData(sheety, cities);
+
+//	map.addMarkers(response);
+
+	//searchButton.onclick = () => {
+	//	let ckin = new Date(checkin.value);;
+	//	let ckout = new Date(checkout.value);
+
+//		let timePeriod = ckout.getTime() - ckin.getTime();
+//		daysPeriod = timePeriod / (1000 * 3600 * 24);
+	//	buildCardsEl(response);
+//	}
+
+	previousPage.onclick = () => {
+		prev (data); 
+		renderCards(data);
+	}
+
+	nextPage.onclick = () => {
+		next(data);
+		renderCards(data);
+	};
+
+	if (data[0]) {
+		renderCards(data);
   }
+ 
 }
 main()
+
   </script>
   </body>
 </html>
