@@ -5,3 +5,27 @@
 #logo{
   
 }
+#checkin-input,
+#checkout-input {
+  appearance: none;
+  text-align: center;
+  color: #484848;
+  border: 1px solid rgba(124, 124, 124, 0.1);
+  padding: 8px;
+  outline: none;
+}
+::-webkit-datetime-edit-month-field {
+  text-transform: uppercase;
+}
+::-webkit-datetime-edit-day-field {
+  text-transform: uppercase;
+}
+::-webkit-datetime-edit-year-field {
+  text-transform: uppercase;
+}
+::-webkit-inner-spin-button {
+  display: none;
+}
+::-webkit-calendar-picker-indicator {
+  background: transparent;
+}

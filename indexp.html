@@ -50,6 +50,18 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group btn-group-lg" role="group">
+            
+            <button>Localização <br/><input type="text" id="fname" name="fname" placeholder="Insira a cidade,poto referencia ou endereço" ></button>        
+            <button>check-in <br/><input type="date" name="checkin-input" id="checkin-input" placeholder="Data check-in" /></button>
+            <button>check-out <br/><input type="date" name="checkout-input" id="checkout-input" /></button>
+            <button>Hospedes <br/><input type="text" id="fname" name="fname" placeholder="Insira o numero de hospedes" ></button>        
+            <button id="search-button">Buscar <br/></button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div  class="col-md-6">
           <div id="cards">
           
@@ -141,12 +153,18 @@
 
 <script>
  //getData
-const apiUrl = "https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
+const apiUrl = "https://demo5798148.mockable.io"//"https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
 const cardsContainer=document.querySelector("#cards");
 let data = [];
+let checkin = document.getElementById('checkin-input');
+let checkout = document.getElementById('checkout-input');
+checkin.valueAsDate = new Date();
+checkout.valueAsDate = new Date();
+let daysPeriod = 0;
 let currentPage = 1;
-let numberOfPages = 4
+let numberOfPages = 0
 let numberObjPerPage = 5;
+
 
 function paginateEvent() {
 	document.getElementById('next').disabled = currentPage === numberOfPages ? true : false;
@@ -206,7 +224,7 @@ function renderCard(card){
     Tipo: ${card.property_type}
   </p>
   <p class="card-text">
-    Preco: R$ ${card.price},00
+    Preco: R$ ${card.price},00 p/mes
   </p>
   </div>
   `;
@@ -217,23 +235,23 @@ function renderCard(card){
 //buscando dados e puxando p array data
 async function main() {
   data = await fetchCards();
+  let searchButton = document.getElementById('search-button')
  let previousPage = document.getElementById('previous');
 	let nextPage = document.getElementById('next');
-
 //	let sheety = await data.get(data.sheetyUrl);
 	//let cities = await data.get(data.citiesUrl);
 //	let response = data.rebaseData(sheety, cities);
 
 //	map.addMarkers(response);
 
-	//searchButton.onclick = () => {
-	//	let ckin = new Date(checkin.value);;
-	//	let ckout = new Date(checkout.value);
+	searchButton.onclick = () => {
+	let ckin = new Date(checkin.value);;
+		let ckout = new Date(checkout.value);
 
-//		let timePeriod = ckout.getTime() - ckin.getTime();
-//		daysPeriod = timePeriod / (1000 * 3600 * 24);
-	//	buildCardsEl(response);
-//	}
+		let timePeriod = ckout.getTime() - ckin.getTime();
+		daysPeriod = timePeriod / (1000 * 3600 * 24);
+		renderCards(data);
+	}
 
 	previousPage.onclick = () => {
 		prev (data); 
