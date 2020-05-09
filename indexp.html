@@ -73,6 +73,8 @@
           
         </div>
         <div class="col-md-6">
+          <button id="search-buttonlocal">Clique aqui para ver localizacao <br/></button>
+          <div id="mapholder"></div>
         </div>
       </div>
     </div>
@@ -152,7 +154,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
  //getData
 const apiUrl = "https://demo5798148.mockable.io"//"https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
@@ -205,7 +207,7 @@ function prev(data) {
 	
 	getNumberOfPages(data);
 };
-
+//funcao filtrar busca
 function filter(city, data) {
   let dados = [];
 	const response = []
@@ -228,8 +230,40 @@ function filter(city, data) {
   
   }
   console.log(dados)
- 
+  cardsContainer.innerHTML = "";
+  dados.map(renderCard);
 }
+//funcao buscar geolocalizacao
+ 
+const apiMapKey = 'AIzaSyCnqtwJKIoDl6ShU2rpk9Vai0rjIOd8Vqk';
+
+let script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=${apiMapKey}&callback=initMap`;
+script.defer = true;
+script.async = true;
+
+document.head.appendChild(script);
+
+function showPosition(data){
+  lat=data[0].latitude;
+  lon=data[0].longitude
+  latlon=new google.maps.LatLng(lat, lon)
+  mapholder=document.getElementById('mapholder')
+  mapholder.style.height='250px';
+  mapholder.style.width='500px';
+ 
+  var myOptions={
+  center:latlon,zoom:14,
+  mapTypeId:google.maps.MapTypeId.ROADMAP,
+  mapTypeControl:false,
+  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+  var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"Você está Aqui!"});
+  }
+
+
+
 
 //funcoes puxar dados da api e instanciar cardsContaines
 async function fetchCards(){
@@ -283,11 +317,12 @@ function renderCard(card){
 async function main() {
   data = await fetchCards();
   let searchButton = document.getElementById('search-button')
+  let searchButtonLocal = document.getElementById('search-buttonlocal')
   let previousPage = document.getElementById('previous');
 	let nextPage = document.getElementById('next');
-  
-
-//	map.addMarkers(response);
+  searchButtonLocal.onclick = () => {
+    showPosition(data)
+	}
 
 	searchButton.onclick = () => {
 	let ckin = new Date(checkin.value);
@@ -295,25 +330,28 @@ async function main() {
   let timePeriod = ckout.getTime() - ckin.getTime();
 	daysPeriod = timePeriod / (1000 * 3600 * 24);
   let city = (cidade.value);
-  filter(city, data)
-  console.log(dados)
-	renderCards(data);
+	filter(city, data);
 	}
 
 	previousPage.onclick = () => {
+    
 		prev (data); 
-		renderCards(data);
+		renderCards( data);
 	}
 
 	nextPage.onclick = () => {
+    
 		next(data);
-		renderCards(data);
+    
+	  renderCards( data);
 	};
 
 	if (data[0]) {
-		renderCards(data);
+    
+    
+    renderCards(data)
   }
- console.log(data)
+ 
 }
 main()
 
