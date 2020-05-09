@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-   
+ 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
+    
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4">
@@ -53,7 +53,7 @@
         <div class="col-md-12">
           <div class="btn-group btn-group-lg" role="group">
             
-            <button>Localização <br/><input type="text" id="fname" name="fname" placeholder="Insira a cidade,poto referencia ou endereço" ></button>        
+            <button>Localização <br/><input type="text" id="local" name="fname" placeholder="Insira a cidade,poto referencia ou endereço" ></button>        
             <button>check-in <br/><input type="date" name="checkin-input" id="checkin-input" placeholder="Data check-in" /></button>
             <button>check-out <br/><input type="date" name="checkout-input" id="checkout-input" /></button>
             <button>Hospedes <br/><input type="text" id="fname" name="fname" placeholder="Insira o numero de hospedes" ></button>        
@@ -144,6 +144,8 @@
        
       </div>
     </div>
+   
+    
     </div>
     
     
@@ -154,10 +156,13 @@
 <script>
  //getData
 const apiUrl = "https://demo5798148.mockable.io"//"https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
+//enviando cardsContainer div id cards html
 const cardsContainer=document.querySelector("#cards");
+//instanciando variaveis
 let data = [];
 let checkin = document.getElementById('checkin-input');
 let checkout = document.getElementById('checkout-input');
+let cidade = document.getElementById('local');
 checkin.valueAsDate = new Date();
 checkout.valueAsDate = new Date();
 let daysPeriod = 0;
@@ -165,7 +170,7 @@ let currentPage = 1;
 let numberOfPages = 0
 let numberObjPerPage = 5;
 
-
+//funcoes estruturar paginacao
 function paginateEvent() {
 	document.getElementById('next').disabled = currentPage === numberOfPages ? true : false;
 	document.getElementById('previous').disabled = currentPage === 1 ? true : false;
@@ -191,15 +196,42 @@ function loadObjs(data) {
 
 function next(data) {
 	currentPage += 1;
-	// buildCardsEl(data);
+	
 	getNumberOfPages(data);
 };
 
 function prev(data) {
 	currentPage -= 1;
-	// buildCardsEl(data);
+	
 	getNumberOfPages(data);
 };
+
+function filter(city, data) {
+  let dados = [];
+	const response = []
+  
+  let i = 0
+  
+  for(i ;i<data.length;i++){
+  let cida = city
+  console.log(cida)
+	if(cida == data[i].cidade){
+    console.log("ok")
+    dados.push(data[i])
+  }else{
+    if(cida != "Botucatu" && cida != "São Manuel" && cida !=" São Paulo"){
+    alert("nao ha propriedades neste local");
+    break;
+    }
+     
+  }
+  
+  }
+  console.log(dados)
+ 
+}
+
+//funcoes puxar dados da api e instanciar cardsContaines
 async function fetchCards(){
   return await fetch(apiUrl)
   .then(async (response) => await response.json()
@@ -210,8 +242,13 @@ function renderCards(data) {
   cardsContainer.innerHTML = "";
   cards.map(renderCard);
   
+  
 }
 function renderCard(card){
+  let currency = new Intl.NumberFormat('pt-BR', {
+		style: 'currency',
+		currency: 'BRL'
+	});
   const div = document.createElement("div");
   div.style.width = "20rem";
   div.style.margin = "2rem";
@@ -221,11 +258,21 @@ function renderCard(card){
   <div class="card-body">
   <h5 class= "card-title">${card.name}</h5>
   <p class="card-text">
+    Cidade: ${card.cidade}
+  </p>
+  <p class="card-text">
     Tipo: ${card.property_type}
   </p>
   <p class="card-text">
-    Preco: R$ ${card.price},00 p/mes
+    Preco: ${currency.format(card.price)} 
   </p>
+  <p class="card-text">
+    Diarias: ${daysPeriod} diárias
+  </p>
+  <p class="card-text">
+   Total de ${currency.format(card.price * daysPeriod)}
+  </p>
+  
   </div>
   `;
   cardsContainer.appendChild(div);
@@ -236,21 +283,21 @@ function renderCard(card){
 async function main() {
   data = await fetchCards();
   let searchButton = document.getElementById('search-button')
- let previousPage = document.getElementById('previous');
+  let previousPage = document.getElementById('previous');
 	let nextPage = document.getElementById('next');
-//	let sheety = await data.get(data.sheetyUrl);
-	//let cities = await data.get(data.citiesUrl);
-//	let response = data.rebaseData(sheety, cities);
+  
 
 //	map.addMarkers(response);
 
 	searchButton.onclick = () => {
-	let ckin = new Date(checkin.value);;
-		let ckout = new Date(checkout.value);
-
-		let timePeriod = ckout.getTime() - ckin.getTime();
-		daysPeriod = timePeriod / (1000 * 3600 * 24);
-		renderCards(data);
+	let ckin = new Date(checkin.value);
+	let ckout = new Date(checkout.value);
+  let timePeriod = ckout.getTime() - ckin.getTime();
+	daysPeriod = timePeriod / (1000 * 3600 * 24);
+  let city = (cidade.value);
+  filter(city, data)
+  console.log(dados)
+	renderCards(data);
 	}
 
 	previousPage.onclick = () => {
@@ -266,7 +313,7 @@ async function main() {
 	if (data[0]) {
 		renderCards(data);
   }
- 
+ console.log(data)
 }
 main()
 
