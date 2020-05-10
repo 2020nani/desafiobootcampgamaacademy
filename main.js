@@ -151,7 +151,7 @@ function renderCard(card){
     Tipo: ${card.property_type}
   </p>
   <p class="card-text">
-    Preco: ${currency.format(card.price)} 
+    Preco: ${currency.format(card.price)} por dia 
   </p>
   <p class="card-text">
     Diarias: ${daysPeriod} diárias
