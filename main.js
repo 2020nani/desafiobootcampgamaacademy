@@ -175,7 +175,7 @@ async function main() {
 	let nextPage = document.getElementById('next');
   searchButtonLocal.onclick = () => {
     showPosition(data)
-    addMarkers(data)
+   
 	}
 
 	searchButton.onclick = () => {

@@ -54,7 +54,11 @@
 }
 #search-buttonlocal{
   margin-top: 4%;
-  margin-left: 30%;
+  margin-left: 40%;
+  text-align: center;
+  width: 18%;
+  border-radius:30%;
+  border: 2px;
 }
 #mapholder{
   margin-top: 1%;
@@ -87,6 +91,11 @@ a:hover {
 #search-button:hover {
   background: unset;
 }
+#button{
+  display: flex;
+  justify-content: space-between;
+
+}
 #b {
   text-align: center;
   width: 20%;
@@ -95,6 +104,16 @@ a:hover {
 }
 
 #b:hover {
+  background: unset;
+}
+#b2 {
+  text-align: center;
+  width: 18%;
+  border-radius:30%;
+  border: 2px;
+}
+
+#b2:hover {
   background: unset;
 }
 #local {
@@ -120,6 +139,7 @@ margin-top: 2%;
 padding-left: 4%;
  
 }
+
 
 ::-webkit-datetime-edit-month-field {
   text-transform: uppercase;
