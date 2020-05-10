@@ -1,6 +1,11 @@
+
+p{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .container-fluid{
   width:vmax;
-  
+  font-family: Arial, Helvetica, sans-serif;
 }
 #head{
   
@@ -34,8 +39,10 @@
   justify-content: space-between;
  
 }
-#b{
-  
+#rodape{
+  width: 99%;
+  display: flex;
+  justify-content: space-between;
 }
 .card-img{
   margin-top: 2%;
@@ -61,6 +68,8 @@
   border: 2px;
 }
 #mapholder{
+  background-color: #d8bfbf;
+  height: 100%;
   margin-top: 1%;
 }
 .pagination{
@@ -70,7 +79,9 @@
 #previous,
 #next{
   width:20%;
-  margin-top:1%
+  margin-top:1%;
+  border-radius:30%;
+  border: 2px;
 }
 a {
   font-family: Arial, Helvetica, sans-serif;
@@ -139,7 +150,14 @@ margin-top: 2%;
 padding-left: 4%;
  
 }
-
+#divrod{
+  width:33%;
+  display: flex;
+  justify-content: center;
+}
+#rod{
+  text-align: center;
+}
 
 ::-webkit-datetime-edit-month-field {
   text-transform: uppercase;
