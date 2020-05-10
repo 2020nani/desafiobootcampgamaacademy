@@ -41,6 +41,7 @@ p{
 }
 #rodape{
   width: 99%;
+  margin-top: 2%;
   display: flex;
   justify-content: space-between;
 }
