@@ -1,19 +1,126 @@
+.container-fluid{
+  width:vmax;
+  
+}
+#head{
+  
+  height: 20vh;
+}
 #rowone{
   display: flex;
   justify-content: space-between;
 }
-#logo{
-  
+#img1{
+  margin-bottom: 2%;
 }
 #checkin-input,
 #checkout-input {
   appearance: none;
   text-align: center;
   color: #484848;
-  border: 1px solid rgba(124, 124, 124, 0.1);
-  padding: 8px;
+  border: unset;
+  padding-left: 8%;
   outline: none;
+  font-size: 12px;
+  background: unset;
 }
+
+#menu{
+  width:100%;
+  
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+#b{
+  
+}
+.card-img{
+  margin-top: 2%;
+  width: 47.5vw;
+}
+.card-body{
+  width: 47.5vw;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: #d8bfbf;
+}
+#cards{
+  width:100%;
+  
+}
+#search-buttonlocal{
+  margin-top: 4%;
+  margin-left: 30%;
+}
+#mapholder{
+  margin-top: 1%;
+}
+.pagination{
+  display: flex;
+  justify-content: space-between;
+}
+#previous,
+#next{
+  width:20%;
+  margin-top:1%
+}
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #6a20f3;
+}
+#search-button {
+  width: 20%;
+  border-radius:60%;
+  border: 2px;
+}
+
+#search-button:hover {
+  background: unset;
+}
+#b {
+  text-align: center;
+  width: 20%;
+  border-radius:60%;
+  border: 2px;
+}
+
+#b:hover {
+  background: unset;
+}
+#local {
+  text-align: center;
+  width: 70%;
+  height: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  border: unset;
+  background: unset;
+  
+}
+#local:hover {
+  background: unset;
+  border: unset;
+}
+#imgcards{
+  float: left;
+}
+#footer{
+width: 80%;  
+margin-top: 2%;
+padding-left: 4%;
+ 
+}
+
 ::-webkit-datetime-edit-month-field {
   text-transform: uppercase;
 }

@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html>
- 
+  <head>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
   </head>
   <body>
     
     <div class="container-fluid">
-      <div class="row">
+      
+      <div id="head" class="row">
         <div class="col-md-4">
-          <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+          <img id="img1" width="60%" height="40%" alt="Bootstrap Image Preview" src="imagens/logo.png" />
         </div>
         <div class="col-md-4">
-          <div class="btn-group" role="group">
-             
-            <button class="btn btn-secondary" type="button">
-              Left
-            </button> 
-            <button class="btn btn-secondary" type="button">
-              Center
-            </button> 
-            <button class="btn btn-secondary" type="button">
-              Right
-            </button> 
-            <button class="btn btn-secondary" type="button">
-              Justify
-            </button>
+          <div >
+             <img id="img1" width="100%" height="50%" src="imagens/gacadeny.png"/>
           </div>
         </div>
         <div class="col-md-4">
           <ul class="nav">
+            
+              <li class="nav-item dropdown ml-md-auto">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                   Linguagem
+                  </a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                   <a class="dropdown-item"  href="#">
+                    
+                    Portugues BR</a> <a class="dropdown-item" href="#">R$ BRL</a>
+                 
+               </div>
+             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link active" href="#">Ajuda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <a class="nav-link" href="#">Entrar</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Messages</a>
-            </li>
-            <li class="nav-item dropdown ml-md-auto">
-               <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                 <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider">
-                </div> <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-            </li>
+           
+           
           </ul>
         </div>
       </div>
+      
       <div class="row">
         <div class="col-md-12">
-          <div class="btn-group btn-group-lg" role="group">
+          <div id="menu" >
             
-            <button>Localização <br/><input type="text" id="local" name="fname" placeholder="Insira a cidade,poto referencia ou endereço" ></button>        
-            <button>check-in <br/><input type="date" name="checkin-input" id="checkin-input" placeholder="Data check-in" /></button>
-            <button>check-out <br/><input type="date" name="checkout-input" id="checkout-input" /></button>
-            <button>Hospedes <br/><input type="text" id="fname" name="fname" placeholder="Insira o numero de hospedes" ></button>        
+            <button id="b">Localização <br/><input type="text" id="local" name="fname" placeholder="Insira a cidade" ></button>        
+            <button id="b">check-in <br/><input type="date" name="checkin-input" id="checkin-input" placeholder="Data check-in" /></button>
+            <button id="b">check-out <br/><input type="date" name="checkout-input" id="checkout-input" /></button>        
             <button id="search-button">Buscar <br/></button>
           </div>
         </div>
       </div>
       <div class="row">
         <div  class="col-md-6">
+          <p>Mais de 20 acomodações</p>
+            <h1>Acomodações estado de Sao Paulo</h1><br/>
+           <div>
+            <button>Flexibilidade de cancelamento</button>
+            <button>Tipo de lugar</button>
+            <button>Preco</button>
+            <button>Reserva Instantanes</button>
+            <button>Mais filtros</button>
+          </div>
+         <p> Mostrando seus resultados Aleatorio</p>
+         <img id="imgcards" src="imagens/icon-uc-alarm.e0a2b02f.gif"><p>Verifique as restrições de viagem antes de fazer uma reserva.A saúde e a segurança das nossas comunidades vêm sempre em primeiro lugar. Siga as orientações do governo e viaje apenas se for essencial.Saiba mais </p></img>
           <div id="cards">
-          
           </div>
           <div class="pagination">
             <input type="button" id="previous" value="previous" />
@@ -73,13 +78,14 @@
           
         </div>
         <div class="col-md-6">
-          <button id="search-buttonlocal">Clique aqui para ver localizacao <br/></button>
-          <div id="mapholder"></div>
+         
+          <div id="mapholder"><button id="search-buttonlocal">Clique aqui para ver localizacao <br/></button></div>
         </div>
       </div>
+      <hr>
     </div>
-    <div class="row">
-      <div class="col-md-3">
+    <div id="foot" class="row">
+      <div id="footer" class="col-md-3">
         <h5>Sobre</h5></br><hr>
         <a href="index.html">
           Diversidade e pertencimento<br/>
@@ -97,7 +103,7 @@
           Newsroom<br/>
         </a>
       </div>
-      <div class="col-md-3">
+      <div id="footer" class="col-md-3">
         <h5>Comunidade</h5></br><hr>
         <a href="index.html">
           Airbnb Magazine<br/>
@@ -113,7 +119,7 @@
         </a>
         
       </div>
-      <div class="col-md-3">
+      <div id="footer" class="col-md-3">
         <h5>anfitriao</h5></br><hr>
         <a href="index.html">
           Hospede em sua acomodação<br/>
@@ -135,7 +141,7 @@
         </a>
       </div>
       
-      <div class="col-md-3">
+      <div id="footer" class="col-md-3">
         <h5>Atendimento</h5></br><hr>
         <a href="index.html">
           Central de ajuda<br/>
@@ -155,6 +161,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
 <script>
  //getData
 const apiUrl = "https://demo5798148.mockable.io"//"https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
@@ -235,22 +242,26 @@ function filter(city, data) {
 }
 //funcao buscar geolocalizacao
  
-const apiMapKey = 'AIzaSyCnqtwJKIoDl6ShU2rpk9Vai0rjIOd8Vqk';
+/*const apiMapKey = 'AIzaSyCnqtwJKIoDl6ShU2rpk9Vai0rjIOd8Vqk';
 
 let script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=${apiMapKey}&callback=initMap`;
 script.defer = true;
 script.async = true;
 
-document.head.appendChild(script);
+document.head.appendChild(script);*/
 
 function showPosition(data){
-  lat=data[0].latitude;
-  lon=data[0].longitude
+  for(let i = 0; i< data.length; i ++){
+  lat = data[i].latitude,
+  lon=data[i].longitude
+  
+  }
+  
   latlon=new google.maps.LatLng(lat, lon)
   mapholder=document.getElementById('mapholder')
-  mapholder.style.height='250px';
-  mapholder.style.width='500px';
+  mapholder.style.height='99.8%';
+  mapholder.style.width='100%';
  
   var myOptions={
   center:latlon,zoom:14,
@@ -259,8 +270,14 @@ function showPosition(data){
   navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
   };
   var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+  for(let i = 0; i< data.length; i ++){
+  lat = data[i].latitude,
+  lon=data[i].longitude
   var marker=new google.maps.Marker({position:latlon,map:map,title:"Você está Aqui!"});
   }
+  }
+   
+  
 
 
 
@@ -285,10 +302,10 @@ function renderCard(card){
 	});
   const div = document.createElement("div");
   div.style.width = "20rem";
-  div.style.margin = "2rem";
+  
   div.className = "card";
   div.innerHTML = `
-  <img src= "${card.photo}" class="card-img" alt="imagem invalida"/>
+  <img  src= "${card.photo}" class="card-img" alt="imagem invalida"/>
   <div class="card-body">
   <h5 class= "card-title">${card.name}</h5>
   <p class="card-text">
@@ -322,6 +339,7 @@ async function main() {
 	let nextPage = document.getElementById('next');
   searchButtonLocal.onclick = () => {
     showPosition(data)
+    addMarkers(data)
 	}
 
 	searchButton.onclick = () => {
